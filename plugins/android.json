@@ -1,0 +1,39 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.imc.fichatecnica"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.imc.fichatecnica"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.1.1",
+      "PACKAGE_NAME": "com.imc.fichatecnica"
+    },
+    "cordova-plugin-app-name": {
+      "APP_NAME": "Ficha Tecnica",
+      "PACKAGE_NAME": "com.imc.fichatecnica"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.imc.fichatecnica"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.imc.fichatecnica"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.imc.fichatecnica"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.imc.fichatecnica"
+    }
+  }
+}
