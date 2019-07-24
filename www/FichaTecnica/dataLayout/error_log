@@ -1,0 +1,132 @@
+[15-Mar-2019 23:56:40 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php:60
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php(60): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php(7): consultarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php on line 60
+[17-Mar-2019 22:03:21 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php:60
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php(60): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php(7): consultarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php on line 60
+[17-Mar-2019 22:04:20 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[17-Mar-2019 22:04:24 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[17-Mar-2019 22:04:32 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[25-Mar-2019 13:14:21 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[25-Mar-2019 13:14:25 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:70
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(70): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimientoTecnico()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 70
+[25-Mar-2019 13:14:34 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php:60
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php(60): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php(7): consultarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php on line 60
+[07-Apr-2019 22:39:41 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php:60
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php(60): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php(7): consultarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php on line 60
+[08-Apr-2019 17:37:18 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[05-Jun-2019 16:11:42 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[05-Jun-2019 16:11:59 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[05-Jun-2019 16:12:14 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:70
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(70): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimientoTecnico()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 70
+[05-Jun-2019 16:12:51 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[08-Jul-2019 11:30:05 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[08-Jul-2019 11:30:30 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[08-Jul-2019 11:32:24 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:70
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(70): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimientoTecnico()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 70
+[08-Jul-2019 15:30:56 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[08-Jul-2019 15:32:02 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[08-Jul-2019 15:34:25 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:35
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(35): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): listarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 35
+[08-Jul-2019 15:35:55 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1364 Field 'idOrdenMantenimiento' doesn't have a default value' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php:113
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(113): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php(8): insertarOrdenMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvOrdenesMantenimiento.php on line 113
+[22-Jul-2019 21:31:47 America/Bogota] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'imccom_hornipan_mantemaq.ft_vCatalogos' doesn't exist' in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php:60
+Stack trace:
+#0 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php(60): PDOStatement->execute()
+#1 /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php(7): consultarOrdenesMantenimiento()
+#2 {main}
+  thrown in /home/imccom/public_html/FichaTecnica/FichaTecnica/dataLayout/srvConsultas.php on line 60
