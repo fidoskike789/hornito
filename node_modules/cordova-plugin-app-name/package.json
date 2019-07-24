@@ -1,0 +1,66 @@
+{
+  "_from": "cordova-plugin-app-name",
+  "_id": "cordova-plugin-app-name@1.0.4",
+  "_inBundle": false,
+  "_integrity": "sha1-FruwzRrwdAumNH66QPIgM0HU+z0=",
+  "_location": "/cordova-plugin-app-name",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-app-name",
+    "name": "cordova-plugin-app-name",
+    "escapedName": "cordova-plugin-app-name",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-app-name/-/cordova-plugin-app-name-1.0.4.tgz",
+  "_shasum": "16bbb0cd1af0740ba6347eba40f2203341d4fb3d",
+  "_spec": "cordova-plugin-app-name",
+  "_where": "C:\\Users\\omontalvo\\Documents\\IMC\\IMCFichaTecnica",
+  "bugs": {
+    "url": "https://github.com/blakgeek/cordova-plugin-app-name/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-app-name",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "dependencies": {
+    "xml2js": "^0.4.16"
+  },
+  "deprecated": false,
+  "description": "A Cordova/PhoneGap plugin that allows you to give you app a name with spaces and special characters and stuff.",
+  "devDependencies": {
+    "libxmljs": "^0.18.4"
+  },
+  "homepage": "https://github.com/blakgeek/cordova-plugin-app-name",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova:plugin",
+    "spaces",
+    "app",
+    "name",
+    "rename"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-app-name",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blakgeek/cordova-plugin-app-name.git"
+  },
+  "scripts": {
+    "postversion": "node scripts/sync-plugin-version.js; git add plugin.xml; git commit plugin.xml -m \"v${npm_package_version}\""
+  },
+  "version": "1.0.4"
+}
