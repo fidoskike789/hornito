@@ -1,0 +1,4 @@
+#Mon Jul 23 00:05:14 COT 2018
+base.0=C\:\\Users\\omontalvo\\Documents\\IMC\\IMCFichaTecnica\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+renamed.0=classes.dex
+file.0=C\:\\Users\\omontalvo\\Documents\\IMC\\IMCFichaTecnica\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex
