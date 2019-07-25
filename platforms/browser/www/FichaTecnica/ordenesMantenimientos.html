@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> <![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="es" class="no-js">
+<!--<![endif]-->
+
+<head>
+	<title>Ordenes de Mantenimiento</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="IMC - Ficha Técnica">
+	<meta name="author" content="IMC">
+	<!-- CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/main.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/my-custom-styles.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/datatables.min.css"/>
+	<link href="css/master.css?v=201806112303" rel="stylesheet" type="text/css">
+	<!--[if lte IE 9]>
+		<link href="assets/css/main-ie.css" rel="stylesheet" type="text/css"/>
+		<link href="assets/css/main-ie-part2.css" rel="stylesheet" type="text/css"/>
+	<![endif]-->
+	
+	<!-- Fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/kingadmin-favicon144x144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/kingadmin-favicon114x114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/kingadmin-favicon72x72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/ico/kingadmin-favicon57x57.png">
+	<link rel="shortcut icon" href="assets/ico/favicon.png">
+
+	<style type="text/css">
+		fieldset{
+			margin-bottom: 20px;
+		}
+
+		.has-switch span.switch-left{
+			background: #398439;
+			color: #ffffff;
+		}
+
+		.has-switch span.switch-right{
+			background: #d02a25;
+			color: #ffffff;
+		}
+	</style>
+</head>
+
+<body class="sidebar-fixed topnav-fixed demo-only-page-blank">
+	<!-- WRAPPER -->
+	<div id="wrapper" class="wrapper">
+		<div class="modal fade" id="mdConfirmacionAnulacionOrden" tabindex="-1" role="dialog" aria-labelledby="mdConfirmacionAnulacionOrden" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<!--<h4 class="modal-title">Confirmar</h4>-->
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<h4 class="modal-title">¿Está seguro que desea anular la Orden N°: <span id="ordenAnular"></span>? La acción no se puede deshacer.</h4>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times-circle"></i> NO</button>
+						<button id="btnAnularOrden" type="button" class="btn btn-success"><i class="fa fa-check-circle"></i> SI</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="mdConfirmacionEliminarOrden" tabindex="-1" role="dialog" aria-labelledby="mdConfirmacionEliminarOrden" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<!--<h4 class="modal-title">Confirmar</h4>-->
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<h4 class="modal-title">¿Está seguro que desea <strong>eliminar permanentemente</strong> la Orden N°: <span id="ordenEliminar"></span>?.</h4>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times-circle"></i> NO</button>
+						<button id="btnEliminarOrden" type="button" class="btn btn-success"><i class="fa fa-check-circle"></i> SI</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- TOP BAR -->
+		<div class="top-bar navbar-fixed-top">
+			<div class="container">
+				<div class="clearfix">
+					<a href="#" class="pull-left toggle-sidebar-collapse"><i class="fa fa-bars"></i></a>
+					<!-- logo -->
+					<div class="pull-left left logo">
+						<a href="dashboard.html"><img src="assets/img/kingadmin-logo-white.png" alt="Ficha Técnica" /></a>
+						<h1 class="sr-only">IMC - Ficha Técnica</h1>
+					</div>
+					<!-- end logo -->
+					<div class="pull-right right">
+						<!-- top-bar-right -->
+						<div class="top-bar-right">
+							<!-- logged user and the menu -->
+							<div class="logged-user">
+								<div class="btn-group">
+									<a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+										<img src="assets/img/default-user-image.png" alt="Usuario" />
+										<span class="name"></span> <span class="caret"></span>
+									</a> 
+									<ul class="dropdown-menu" role="menu">
+										<li>
+											<a id="btnCerrarSesion" href="#">
+												<i class="fa fa-power-off"></i>
+												<span class="text">Cerrar Sesión</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- end logged user and the menu -->
+						</div>
+						<!-- end top-bar-right -->
+					</div>
+				</div>
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- END TOP BAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="left-sidebar" class="left-sidebar ">
+			<!-- main-nav -->
+			<div class="sidebar-scroll">
+				<nav class="main-nav">
+					<ul id="menu" class="main-menu">
+						<!--MENU-->
+						<li><a href="dashboard.html"><i class="fa fa-home"></i><span class="text">Inicio</span></a></li>
+					</ul>
+				</nav>
+				<!-- /main-nav -->
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN CONTENT WRAPPER -->
+		<div id="main-content-wrapper" class="content-wrapper ">
+			<div class="row">
+				<div class="col-lg-12 ">
+					<ul class="breadcrumb">
+						<li><i class="fa fa-folder-open"></i><a href="#">Ficha Técnica</a></li>
+						<li class="active">Ordenes Mantenimiento</li>
+					</ul>
+				</div>
+			</div>
+			<!-- main -->
+			<div class="content">
+				<div class="main-header">
+					<h2>Ordenes de Mantenimiento</h2>
+					<em>Solicitudes de mantenimiento</em>
+				</div>
+				<div class="main-content">
+					<div id="pnlOrdenesMantenimiento" class="widget">
+						<div class="widget-header">
+							<h3><i class="fa fa-folder-open"></i> Ordenes de Mantenimiento Pendientes y Asignadas</h3>
+						</div>
+						<div class="widget-content">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="table-responsive">
+										<table id="dtOrdenesMantenimiento" class="table table-bordered text-xs compact">
+											<thead>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="widget-footer">
+							<div class="row">
+								<div class="col-lg-12 pull-right">
+									<button id="btnNuevaOrden" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> <span>NUEVO</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="pnlOrdenMantenimientoInfo" class="widget">
+						<div class="widget-header">
+							<h3><i class="fa fa-edit"></i> Orden de Mantenimiento</h3>
+							<div class="widget-header-toolbar">
+								<div class="label label-success" style="font-size: 14px"><i class="fa fa-file"></i> Orden N°: <span id="orden"></span></div>
+								<div class="label label-warning" style="font-size: 14px"><i class="fa fa-file"></i> Estado: <span id="estado"></span></div>
+							</div>
+						</div>
+						<div class="widget-content">
+							<div class="row">
+								<div class="col-lg-12">
+									<form id="frmOrdenMantenimiento" class="form-horizontal" role="form">
+										<!--INFORMACION DEL CLIENTE-->
+										<fieldset>
+											<legend>Información del Cliente</legend>
+
+											<div class="row">
+												<div class="col-sm-4">
+													<div class="form-group">
+														<h4>Cliente</h4>
+														<div class="input-group">
+															<input type="text" class="form-control" id="txtCliente" name="txtCliente" placeholder="Cliente">
+															<span class="input-group-addon"><i class="fa fa-user"></i></span>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-4">
+													<div class="form-group">
+														<h4>Teléfono</h4>
+														<div class="input-group">
+															<input type="text" class="form-control" id="txtTelefono" name="txtTelefono" placeholder="Teléfono">
+															<span class="input-group-addon"><i class="fa fa-phone"></i></span>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-4">
+													<div class="form-group">
+														<h4>Dirección</h4>
+														<div class="input-group">
+															<input type="text" class="form-control" id="txtDireccion" name="txtDireccion" placeholder="Dirección">
+															<span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-4">
+													<div class="form-group">
+														<h4>Fecha Emisión</h4>
+														<div class="input-group">
+															<input type="text" class="form-control" id="txtFechaEmision" name="txtFechaEmision" placeholder="Fecha Emisión">
+															<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-4">
+													<div class="form-group">
+														<h4>Sección</h4>
+														<div class="input-group">
+															<input type="text" class="form-control" id="txtSeccion" name="txtSeccion" placeholder="Sección">
+															<span class="input-group-addon"><i class="fa fa-user"></i></span>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-4">
+													<div class="form-group">
+														<h4>Fecha Mantenimiento</h4>
+														<div class="input-group">
+															<input type="text" class="form-control" id="txtFechaMantenimiento" name="txtFechaMantenimiento" placeholder="Fecha Mantenimiento">
+															<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</fieldset>
+
+										<!--INFORMACION DEL PRODUCTO-->
+										<fieldset>
+											<legend>Información del Producto</legend>
+
+											<div class="row">
+												<div class="col-sm-4">
+													<div class="form-group">
+														<h4>Producto</h4>
+														<div class="input-group">
+															<input type="text" class="form-control" id="txtProducto" name="txtProducto" placeholder="Producto">
+															<span class="input-group-addon"><i class="fa fa-gift"></i></span>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-4">
+													<div class="form-group">
+														<h4>Fecha Venta</h4>
+														<div class="input-group">
+															<input type="text" class="form-control" id="txtFechaVenta" name="txtFechaVenta" placeholder="Fecha Venta">
+															<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-4">
+													<div class="form-group">
+														<h4>Técnico Ultimo Mantenimiento</h4>
+														<div class="input-group">
+															<input type="text" class="form-control" id="txtTecnicoUltimoMantenimiento" name="txtTecnicoUltimoMantenimiento" placeholder="Técnico Ultimo Mantenimiento">
+															<span class="input-group-addon"><i class="fa fa-cogs"></i></span>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-4">
+													<div class="form-group">
+														<h4>Técnico que Reporta</h4>
+														<div class="input-group">
+															<input type="text" class="form-control" id="txtTecnicoReporta" name="txtTecnicoReporta" placeholder="Técnico que Reporta">
+															<span class="input-group-addon"><i class="fa fa-bell"></i></span>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-4">
+													<div class="form-group">
+														<h4>¿En Garantía?</h4>
+														<input id="chkGarantia" type="radio" name="chkGarantia">
+													</div>
+												</div>
+											</div>
+										</fieldset>
+
+										<!--INFORMACION DEL PRODUCTO-->
+										<fieldset>
+											<legend>Información del Mantenimiento</legend>
+
+											<div class="row">
+												<div class="col-sm-12">
+													<h4>Descripción del Mantenimiento</h4>
+													<div class="input-group">
+														<textarea class="form-control" id="txtDescripcion" name="txtDescripcion" rows="5" cols="30" placeholder="Descripción del Mantenimiento"></textarea>
+														<span class="input-group-addon"><i class="fa fa-edit"></i></span>
+													</div>
+												</div>
+
+												<!--<div class="col-sm-6">
+													<h4>Observaciones</h4>
+													<div class="input-group">
+														<textarea class="form-control" id="txtObservaciones" name="txtObservaciones" rows="5" cols="30" placeholder="Observaciones"></textarea>
+														<span class="input-group-addon"><i class="fa fa-edit"></i></span>
+													</div>
+												</div>-->
+											</div>
+										</fieldset>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="widget-footer">
+							<div class="row">
+								<div class="col-lg-12 pull-right">
+									<button id="btnGuardarOrden" type="button" class="btn btn-success btn-sm"><i class="fa fa-save"></i> <span>GUARDAR</span></button>
+									<button id="btnEditarOrden" type="button" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> <span>EDITAR</span></button>
+									<button id="btnCancelarOrden" type="button" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> <span>CANCELAR</span></button>
+									<button id="btnImprimirOrden" type="button" class="btn btn-info btn-sm"><i class="fa fa-print"></i> <span>IMPRIMIR</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="pnlImprimirOrdenMantenimiento" class="widget">
+						<div class="widget-header">
+							<h3><i class="fa fa-folder-open"></i> Orden a imprimir</h3>
+						</div>
+						<div class="widget-content">
+							<div class="row">
+								<div class="col-lg-12">
+									<div id="editorOrden"></div>
+								</div>
+							</div>
+						</div>
+						<div class="widget-footer">
+							<div class="row">
+								<div class="col-lg-12 pull-right">
+									<button type="button" class="btn btn-danger btn-sm" onclick="$('#pnlImprimirOrdenMantenimiento').slideUp('fast');"><i class="fa fa-times"></i> <span>CERRAR</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /main -->
+			<!-- FOOTER -->
+			<footer class="footer">
+				&copy; 2018 IMC
+			</footer>
+			<!-- END FOOTER -->
+		</div>
+		<!-- END CONTENT WRAPPER -->
+	</div>
+	<!-- END WRAPPER -->
+	
+	<!-- Javascript -->
+	<script src="assets/js/jquery/jquery-2.1.0.min.js"></script>
+	<script src="assets/js/bootstrap/bootstrap.js"></script>
+	<script src="assets/js/plugins/modernizr/modernizr.js"></script>
+	<script src="assets/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+	<script src="assets/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/js/plugins/jquery-maskedinput/jquery.masked-input.min.js"></script>
+	<script src="assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+	<script src="assets/js/plugins/datatable/jquery.dataTables.min.js"></script>
+	<script src="assets/js/plugins/datatable/exts/dataTables.colVis.bootstrap.js"></script>
+	<script src="assets/js/plugins/datatable/exts/dataTables.colReorder.min.js"></script>
+	<script src="assets/js/plugins/datatable/exts/dataTables.tableTools.min.js"></script>
+	<script src="assets/js/plugins/datatable/dataTables.bootstrap.js"></script>
+	<script type="text/javascript" src="js/datatables.min.js"></script>
+	<script src="assets/js/king-common.js"></script>
+	<script src="assets/js/plugins/summernote/summernote.min.js"></script>
+	<script src="js/jquery.PrintArea.js"></script>
+	<script src="js/jquery.validate.custom.js"></script>
+	<script src="js/jquery.blockUI.js"></script>
+	<script src="assets/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+	<script src="assets/js/plugins/jquery-gritter/jquery.gritter.min.js"></script>
+	<script src="js/master.js?v=201806112303"></script>
+	<script src="js/ordenesMantenimientos.js?v=201806282153"></script>
+</body>
+</html>
