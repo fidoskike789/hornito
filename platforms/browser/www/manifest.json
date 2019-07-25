@@ -1,0 +1,17 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "FichaTecnica",
+  "short_name": "FichaTecnica",
+  "version": "com.imc.fichatecnica",
+  "description": "Hornipan - Ficha Técnica.",
+  "author": "Equipo de Desarrollo",
+  "icons": [
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
+  "start_url": "index.html"
+}
