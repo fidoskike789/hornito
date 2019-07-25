@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> <![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="es" class="no-js">
+<!--<![endif]-->
+
+<head>
+	<title>Consultas</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="IMC - Ficha Técnica">
+	<meta name="author" content="IMC">
+	<!-- CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/main.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/my-custom-styles.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/datatables.min.css"/>
+	<link href="css/master.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		.form-group{
+			margin-bottom: 5px;
+		}
+
+		.form-group h4{
+			font-size: 13px;
+		}
+
+		.data-row .data-name{
+			width: 15em;
+			background-color: #929292;
+			color: #ffffff;
+		}
+	</style>
+	<!--[if lte IE 9]>
+		<link href="assets/css/main-ie.css" rel="stylesheet" type="text/css"/>
+		<link href="assets/css/main-ie-part2.css" rel="stylesheet" type="text/css"/>
+	<![endif]-->
+	
+	<!-- Fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/kingadmin-favicon144x144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/kingadmin-favicon114x114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/kingadmin-favicon72x72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/ico/kingadmin-favicon57x57.png">
+	<link rel="shortcut icon" href="assets/ico/favicon.png">
+</head>
+
+<body class="sidebar-fixed topnav-fixed demo-only-page-blank">
+	<!-- WRAPPER -->
+	<div id="wrapper" class="wrapper">
+		<div class="modal fade" id="mdOrdenVisita" tabindex="-1" role="dialog" aria-labelledby="mdOrdenVisita" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Formulario</h4>
+					</div>
+					<div class="modal-body">
+						<div class="col-lg-12">
+							<div id="editorOrdenVisita"></div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-check-circle"></i> ACEPTAR</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- TOP BAR -->
+		<div class="top-bar navbar-fixed-top">
+			<div class="container">
+				<div class="clearfix">
+					<a href="#" class="pull-left toggle-sidebar-collapse"><i class="fa fa-bars"></i></a>
+					<!-- logo -->
+					<div class="pull-left left logo">
+						<a href="dashboard.html"><img src="assets/img/kingadmin-logo-white.png" alt="Ficha Técnica" /></a>
+						<h1 class="sr-only">IMC - Ficha Técnica</h1>
+					</div>
+					<!-- end logo -->
+					<div class="pull-right right">
+						<!-- top-bar-right -->
+						<div class="top-bar-right">
+							<!-- logged user and the menu -->
+							<div class="logged-user">
+								<div class="btn-group">
+									<a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+										<img src="assets/img/default-user-image.png" alt="Usuario" />
+										<span class="name"></span> <span class="caret"></span>
+									</a> 
+									<ul class="dropdown-menu" role="menu">
+										<li>
+											<a id="btnCerrarSesion" href="#">
+												<i class="fa fa-power-off"></i>
+												<span class="text">Cerrar Sesión</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- end logged user and the menu -->
+						</div>
+						<!-- end top-bar-right -->
+					</div>
+				</div>
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- END TOP BAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="left-sidebar" class="left-sidebar ">
+			<!-- main-nav -->
+			<div class="sidebar-scroll">
+				<nav class="main-nav">
+					<ul id="menu" class="main-menu">
+						<!--MENU-->
+					</ul>
+				</nav>
+				<!-- /main-nav -->
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN CONTENT WRAPPER -->
+		<div id="main-content-wrapper" class="content-wrapper ">
+			<div class="row">
+				<div class="col-lg-12 ">
+					<ul class="breadcrumb">
+						<li><i class="fa fa-search"></i><a href="Consultas.html">Consultas</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- main -->
+			<div class="content">
+				<div class="main-header">
+					<h2>Consultas</h2>
+					<em>Generación de consultas según filtros requeridos</em>
+				</div>
+				<div class="main-content">
+					<div class="inbox">
+						<div class="row">
+						</div>
+						<div class="top">
+							<div class="navigation">
+								<button type="button" class="btn btn-link hidden-sm hidden-md hidden-lg inbox-nav-toggle"><i class="fa fa-bars"></i></button>
+							</div>
+						</div>
+						<div class="bottom">
+							<div class="row">
+								<div class="col-xs-12 col-sm-3 col-lg-2 inbox-left-menu" style="overflow-y: auto">
+									<h3 class="sr-only">Filtros</h3>
+									<ul class="list-unstyled left-menu">
+										<li>
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<h4>Consulta / Reporte</h4>
+														<select id="slcConsultaReporte" name="slcConsultaReporte" class="form-control">
+															<option value="0">Seleccione...</option>
+															<option value="1">CONSULTA</option>
+															<option value="2">REPORTE</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</li>
+
+										<li class="consultas">
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<h4>N° Orden</h4>
+														<input type="text" class="form-control" id="txtOrden" name="txtOrden" placeholder="Orden">
+													</div>
+												</div>
+											</div>
+										</li>
+
+										<li class="consultas">
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<h4>Técnico</h4>
+														<select id="slcTecnico" name="slcTecnico" class="form-control">
+															<option value="0">Técnico...</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</li>
+
+										<li>
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<h4>Fecha Desde</h4>
+														<input type="text" class="form-control" id="txtFechaDesde" name="txtFechaDesde" placeholder="Desde">
+													</div>
+												</div>
+											</div>
+										</li>
+
+										<li>
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<h4>Fecha Hasta</h4>
+														<input type="text" class="form-control" id="txtFechaHasta" name="txtFechaHasta" placeholder="Hasta">
+													</div>
+												</div>
+											</div>
+										</li>
+										
+										<li>
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<br/>
+														<button id="btnProcesar" type="button" class="btn btn-success btn-sm btn-block"><i class="fa fa-search"></i> PROCESAR</button>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<!-- end inbox left menu -->
+								<!-- right main content, the messages -->
+								<div class="col-xs-12 col-sm-9 col-lg-10">
+									<div id="dvdConsultas" class="messages">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="table-responsive">
+													<table id="dtResultado" class="table table-bordered text-xs compact">
+														<thead>
+														</thead>
+														<tbody>
+														</tbody>
+														<tfoot style="border: 0">
+														    <tr>
+														      	<td style="text-align: right;" colspan="7"><b>TOTAL TRABAJADO:</b></td>
+														      	<td id="totalTrabajado"></td>
+														      	<td style="border-right-width: 0; border-left-width: 0;" colspan="6"></td>
+														    </tr>
+														  </tfoot>
+													</table>
+												</div>
+												<a name="det"></a>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-lg-12">
+												<!-- PROFILE TAB CONTENT -->
+												<div class="tab-pane profile active">
+													<div class="row">
+														<div class="col-md-3">
+															<div class="user-info-left">
+																<!--<img id="imgFoto" src="http://www.hornipan.com.ec/FichaTecnica/dataLayout/fotos/1_1528170709990.jpg" alt="Foto Mantenimiento" width="230px" height="230px" />-->
+																<img id="imgFoto" src="" alt="Foto Mantenimiento" width="230px" height="230px" />
+																<h2>Foto del mantenimiento</h2>
+																<!--<div class="contact">
+																	<a href="#" class="btn btn-block btn-custom-primary"><i class="fa fa-envelope-o"></i> Send Message</a>
+																	<a href="#" class="btn btn-block btn-custom-secondary"><i class="fa fa-book"></i> Add To Contact</a>
+																	<ul class="list-inline social">
+																		<li><a href="#" title="Facebook"><i class="fa fa-facebook-square"></i></a></li>
+																		<li><a href="#" title="Twitter"><i class="fa fa-twitter-square"></i></a></li>
+																		<li><a href="#" title="Google Plus"><i class="fa fa-google-plus-square"></i></a></li>
+																	</ul>
+																</div>-->
+															</div>
+														</div>
+														<div class="col-md-9">
+															<div class="user-info-right">
+																<div class="basic-info">
+																	<h3><i class="fa fa-square"></i> Detalle de la Orden de Mantenimiento</h3>
+																	<div id="detalleOM">
+																		<p class="data-row">
+																			<span class="data-name">Fecha/Hora de Registro</span>
+																			<span class="data-value" id="fechaRegistro"></span>
+																		</p>
+
+																		<p class="data-row">
+																			<span class="data-name">Usuario quien Registró</span>
+																			<span class="data-value" id="usuarioRegistro"></span>
+																		</p>
+
+																		<p class="data-row">
+																			<span class="data-name">Fecha/Hora de asignación</span>
+																			<span class="data-value" id="fechaAsignacion"></span>
+																		</p>
+
+																		<p class="data-row">
+																			<span class="data-name">Jefatura quien asignó</span>
+																			<span class="data-value" id="usuarioAsignacion"></span>
+																		</p>
+
+																		<p class="data-row">
+																			<span class="data-name">Técnico asignado</span>
+																			<span class="data-value" id="tecnicoAsignado"></span>
+																		</p>
+
+																		<p class="data-row">
+																			<span class="data-name">Fecha/Hora de Inicio</span>
+																			<span class="data-value" id="fechaInicio"></span>
+																		</p>
+
+																		<p class="data-row">
+																			<span class="data-name">Fecha/Hora de Fin</span>
+																			<span class="data-value" id="fechaFin"></span>
+																		</p>
+
+																		<p class="data-row">
+																			<span class="data-name">Tiempo de Mantenimiento</span>
+																			<span class="data-value" id="tiempoMantenimiento"></span>
+																		</p>
+
+																		<p class="data-row">
+																			<span class="data-name">Código de Barras</span>
+																			<span class="data-value" id="codigoBarras"></span>
+																		</p>
+
+																		<p class="data-row">
+																			<span class="data-name">Observaciones</span>
+																			<span class="data-value" id="observaciones"></span>
+																		</p>
+
+																		<p class="data-row">
+																			<span class="data-name">Estado</span>
+																			<span class="data-value" id="estadoDetalle"></span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div id="dvdReportes" class="messages">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="table-responsive">
+													<table id="dtReporte" class="table table-bordered text-xs compact">
+														<thead>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+												</div><a name="rep"></a>
+											</div>
+
+											<div class="col-lg-12">
+												<div id="editorReporte"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /main -->
+			<!-- FOOTER -->
+			<footer class="footer">
+				&copy; 2018 IMC
+			</footer>
+			<!-- END FOOTER -->
+		</div>
+		<!-- END CONTENT WRAPPER -->
+	</div>
+	<!-- END WRAPPER -->
+	
+	<!-- Javascript -->
+	<script src="assets/js/jquery/jquery-2.1.0.min.js"></script>
+	<script src="assets/js/bootstrap/bootstrap.js"></script>
+	<script src="assets/js/plugins/modernizr/modernizr.js"></script>
+	<script src="assets/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+	<script src="assets/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/js/plugins/jquery-gritter/jquery.gritter.min.js"></script>
+	<script src="assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+	<script src="assets/js/king-common.js"></script>
+	<script src="assets/js/king-page.js"></script>
+	<script src="assets/js/plugins/summernote/summernote.min.js"></script>
+	<script src="assets/js/plugins/datatable/jquery.dataTables.min.js"></script>
+	<script src="assets/js/plugins/datatable/exts/dataTables.colVis.bootstrap.js"></script>
+	<script src="assets/js/plugins/datatable/exts/dataTables.colReorder.min.js"></script>
+	<script src="assets/js/plugins/datatable/exts/dataTables.tableTools.min.js"></script>
+	<script src="assets/js/plugins/datatable/dataTables.bootstrap.js"></script>
+	<script type="text/javascript" src="js/datatables.min.js"></script>
+	<script src="js/jquery.validate.custom.js"></script>
+	<script src="js/jquery.PrintArea.js"></script>
+	<script src="js/jquery.blockUI.js"></script>
+	<script src="assets/js/plugins/jquery-gritter/jquery.gritter.min.js"></script>
+	<script src="js/moment-custom.js"></script>
+	<script src="js/master.js?v=201806102319"></script>
+	<script src="js/consultas.js?v=201807222336"></script>
+</body>
+</html>
