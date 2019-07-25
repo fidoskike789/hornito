@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> <![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="es" class="no-js">
+<!--<![endif]-->
+
+<head>
+	<title>Visitas Técnicas</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="IMC - Ficha Técnica">
+	<meta name="author" content="IMC">
+	<!-- CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/main.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/my-custom-styles.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/datatables.min.css"/>
+	<link href="css/master.css" rel="stylesheet" type="text/css">
+	<!--[if lte IE 9]>
+		<link href="assets/css/main-ie.css" rel="stylesheet" type="text/css"/>
+		<link href="assets/css/main-ie-part2.css" rel="stylesheet" type="text/css"/>
+	<![endif]-->
+	
+	<!-- Fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/kingadmin-favicon144x144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/kingadmin-favicon114x114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/kingadmin-favicon72x72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/ico/kingadmin-favicon57x57.png">
+	<link rel="shortcut icon" href="assets/ico/favicon.png">
+
+	<style type="text/css">
+		.row h4{
+			font-size: 12px !important;
+			font-weight: bold;
+		}
+
+		.widget-interno{
+			background-color: #ffffff;
+		}
+
+		#pnlNuevoInconveniente .widget-header{
+			background-color: #C30E1A;
+			color : #ffffff;
+		}
+	</style>
+</head>
+
+<body class="sidebar-fixed topnav-fixed demo-only-page-blank">
+	<!-- WRAPPER -->
+	<div id="wrapper" class="wrapper">
+		<div class="modal fade" id="mdConfirmacionFinalizarMantenimiento" tabindex="-1" role="dialog" aria-labelledby="mdConfirmacionFinalizarMantenimiento" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<!--<h4 class="modal-title">Confirmar</h4>-->
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12" style="text-align: center">
+								<img id="imgFoto" src="" alt="" width="100px" height="100px">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<span class="modal-title">¿Está seguro que desea finalizar el mantenimiento de la Orden N°: <span id="ordenFinalizar"></span>? Ya no se podrán ingresar registros de mantenimientos para esta orden.</span>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times-circle"></i> NO</button>
+						<button id="btnConfirmarFinalizarMantenimiento" type="button" class="btn btn-success"><i class="fa fa-check-circle"></i> SI</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="mdConfirmacionEliminarInconveniente" tabindex="-1" role="dialog" aria-labelledby="mdConfirmacionEliminarInconveniente" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<!--<h4 class="modal-title">Confirmar</h4>-->
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<span class="modal-title">¿Está seguro que desea eliminar el inconveniente seleccionado?</span>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times-circle"></i> NO</button>
+						<button id="btnConfirmarEliminarInconveniente" type="button" class="btn btn-success"><i class="fa fa-check-circle"></i> SI</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="mdHistoricoMantenimientos" tabindex="-1" role="dialog" aria-labelledby="mdHistoricoMantenimientos" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<!--<h4 class="modal-title">Confirmar</h4>-->
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="table-responsive">
+									<table id="dtHistorico" class="table table-bordered text-xs compact">
+										<thead>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-check-circle"></i> OK</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- TOP BAR -->
+		<div class="top-bar navbar-fixed-top">
+			<div class="container">
+				<div class="clearfix">
+					<a href="#" class="pull-left toggle-sidebar-collapse"><i class="fa fa-bars"></i></a>
+					<!-- logo -->
+					<div class="pull-left left logo">
+						<a href="dashboard.html"><img src="assets/img/kingadmin-logo-white.png" alt="Ficha Técnica" /></a>
+						<h1 class="sr-only">IMC - Ficha Técnica</h1>
+					</div>
+					<!-- end logo -->
+					<div class="pull-right right">
+						<!-- top-bar-right -->
+						<div class="top-bar-right">
+							<!-- logged user and the menu -->
+							<div class="logged-user">
+								<div class="btn-group">
+									<a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+										<img src="assets/img/default-user-image.png" alt="Usuario" />
+										<span class="name">Usuario</span> <span class="caret"></span>
+									</a> 
+									<ul class="dropdown-menu" role="menu">
+										<li>
+											<a id="btnCerrarSesion" href="#">
+												<i class="fa fa-power-off"></i>
+												<span class="text">Cerrar Sesión</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- end logged user and the menu -->
+						</div>
+						<!-- end top-bar-right -->
+					</div>
+				</div>
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- END TOP BAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="left-sidebar" class="left-sidebar ">
+			<!-- main-nav -->
+			<div class="sidebar-scroll">
+				<nav class="main-nav">
+					<ul id="menu" class="main-menu">
+						<!--MENU-->
+					</ul>
+				</nav>
+				<!-- /main-nav -->
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN CONTENT WRAPPER -->
+		<div id="main-content-wrapper" class="content-wrapper ">
+			<div class="row">
+				<div class="col-lg-12 ">
+					<ul class="breadcrumb">
+						<li><i class="fa fa-folder-open"></i><a href="#">Ficha Técnica</a></li>
+						<li class="active">Visitas Técnicas</li>
+					</ul>
+				</div>
+			</div>
+			<!-- main -->
+			<div class="content">
+				<div class="main-header">
+					<h2>Visitas Técnicas</h2>
+					<em>Gestión de Visitas Técnicas a los clientes</em>
+				</div>
+				<div class="main-content">
+					<div id="pnlOrdenesMantenimiento" class="widget">
+						<div class="widget-header">
+							<h3><i class="fa fa-folder-open"></i> Ordenes de Mantenimiento en Proceso</h3>
+						</div>
+						<div class="widget-content">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="table-responsive">
+										<table id="dtOrdenesMantenimiento" class="table table-bordered text-xs compact">
+											<thead>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="pnlVisitaTecnica" class="widget">
+						<div class="widget-header pnlPrincipal">
+							<h3><i class="fa fa-file"></i> Visita Técnica</h3>
+							<div class="widget-header-toolbar">
+								<button id="btnHistorialMantenimientos" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#mdHistoricoMantenimientos">
+									<span class="fa fa-history"></span>&nbsp;Historial de Mantenimientos
+								</button>
+							</div>
+						</div>
+						<div class="widget-content">
+							<div class="row pnlPrincipal">
+								<div class="col-sm-3">
+									<h4>Nº Orden Mantenimiento:</h4>
+									<label id="lblOrden"></label>
+								</div>
+
+								<div class="col-sm-2">
+									<h4>Cliente:</h4>
+									<label id="lblCliente"></label>
+								</div>
+
+								<div class="col-sm-2">
+									<h4>Producto:</h4>
+									<label id="lblProducto"></label>
+								</div>
+
+								<div class="col-sm-5">
+									<h4>Fecha Venta:</h4>
+									<label id="lblFechaVenta"></label>
+								</div>
+							</div>
+
+							<div class="row pnlPrincipal">
+								<form id="frmCostoMantenimiento">
+									<div class="col-sm-3">
+										<div class="form-group">
+											<h4>Máquina</h4>
+											<div class="input-group">
+												<input type="text" class="form-control pnlPrincipal" id="txtMaquina" name="txtMaquina" placeholder="Máquina">
+												<span class="input-group-addon pnlPrincipal"><i class="fa fa-cog"></i></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-2">
+										<div class="form-group">
+											<h4>Serie</h4>
+											<div class="input-group">
+												<input type="text" class="form-control pnlPrincipal" id="txtSerie" name="txtSerie" placeholder="Serie">
+												<span class="input-group-addon pnlPrincipal"><i class="fa fa-hashtag"></i></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-2">
+										<div class="form-group">
+											<h4>Modelo</h4>
+											<div class="input-group">
+												<input type="text" class="form-control pnlPrincipal" id="txtModelo" name="txtModelo" placeholder="Modelo">
+												<span class="input-group-addon pnlPrincipal"><i class="fa fa-hashtag"></i></span>
+											</div>
+										</div>
+									</div>
+
+									<!--<div class="col-sm-2">
+										<div class="form-group">
+											<h4>Costo Mantenimiento</h4>
+											<div class="input-group">
+												<input type="text" class="form-control pnlPrincipal" id="txtCosto" name="txtCosto" placeholder="Costo Mantenimiento">
+												<span class="input-group-addon pnlPrincipal"><i class="fa fa-dollar"></i></span>
+											</div>
+										</div>
+									</div>-->
+
+									<div class="col-sm-2">
+										<div class="form-group">
+											<h4>¿Código Deteriorado?</h4>
+											<input id="chkEstadoCodigo" type="radio" name="chkEstadoCodigo">
+										</div>
+									</div>
+
+									<div class="col-sm-2">
+										<div class="form-group">
+											<h4>&nbsp;</h4>
+											<button id="btnGrabarInformacionVT" type="button" class="btn btn-success btn-sm"><i class="fa fa-save"></i> <span>GUARDAR</span></button>
+										</div>
+									</div>
+								</form>
+							</div>
+							
+							<div id="pnlInconvenientes" class="widget widget-interno">
+								<div class="widget-header">
+									<h3><i class="fa fa-file-o"></i> Inconvenientes</h3>
+								</div>
+								<div class="widget-content">
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="table-responsive">
+												<table id="dtInconvenientes" class="table table-bordered text-xs compact">
+													<thead>
+													</thead>
+													<tbody>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="widget-footer">
+									<div class="row">
+										<div class="col-lg-12 pull-right">
+											<button id="btnNuevoInconveniente" type="button" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> <span>NUEVO INCONVENIENTE</span></button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div id="pnlNuevoInconveniente" class="widget widget-interno">
+								<div class="widget-header">
+									<h3><i class="fa fa-file-o"></i> Nuevo Inconveniente</h3>
+								</div>
+								<div class="widget-content">
+									<div class="row">
+										<div class="col-sm-12">
+											<form id="frmNuevoInconveniente">
+												<div class="form-group">
+													<div class="input-group" style="width: 100%;">
+														<textarea id="txtDescripcionInconveniente" name="txtDescripcionInconveniente" rows="3" class="form-control" placeholder="Descripción del Inconveniente"></textarea>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-6">
+											<input id="contadorTrabajos" type="hidden" value="1" />
+											<table id="tblTrabajos" width="100%">
+											</table>
+										</div>
+
+										<div class="col-sm-6">
+											<input id="contadorNovedades" type="hidden" value="1" />
+											<table id="tblNovedades" width="100%">
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="widget-footer">
+									<div class="row">
+										<div class="col-lg-12 pull-right">
+											<button id="btnCancelarInconveniente" type="button" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> <span>CANCELAR</span></button>
+											<button id="btnGrabarInconveniente" type="button" class="btn btn-success btn-sm"><i class="fa fa-save"></i> <span>GRABAR INCONVENIENTE</span></button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="widget-footer">
+							<div class="row">
+								<div class="col-lg-12 pull-right">
+									<button id="btnCancelarVisita" type="button" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> <span>CANCELAR</span></button>
+									<button id="btnFinalizarMantenimiento" type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#mdConfirmacionFinalizarMantenimiento"><i class="fa fa-save"></i> <span>FINALIZAR MANTENIMIENTO</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /main -->
+			<!-- FOOTER -->
+			<footer class="footer">
+				&copy; 2018 IMC
+			</footer>
+			<!-- END FOOTER -->
+		</div>
+		<!-- END CONTENT WRAPPER -->
+	</div>
+	<!-- END WRAPPER -->
+	
+	<!-- Javascript -->
+	<script src="../cordova.js"></script>
+	<script src="assets/js/jquery/jquery-2.1.0.min.js"></script>
+	<script src="assets/js/bootstrap/bootstrap.js"></script>
+	<script src="assets/js/plugins/modernizr/modernizr.js"></script>
+	<script src="assets/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+	<script src="assets/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/js/plugins/jquery-gritter/jquery.gritter.min.js"></script>
+	<script src="assets/js/plugins/jquery-maskedinput/jquery.masked-input.min.js"></script>
+	<script src="assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+	<script src="assets/js/plugins/datatable/jquery.dataTables.min.js"></script>
+	<script src="assets/js/plugins/datatable/exts/dataTables.colVis.bootstrap.js"></script>
+	<script src="assets/js/plugins/datatable/exts/dataTables.colReorder.min.js"></script>
+	<script src="assets/js/plugins/datatable/exts/dataTables.tableTools.min.js"></script>
+	<script src="assets/js/plugins/datatable/dataTables.bootstrap.js"></script>
+	<script type="text/javascript" src="js/datatables.min.js"></script>
+	<script src="js/jquery.validate.custom.js"></script>
+	<script src="js/jquery.blockUI.js"></script>
+	<script src="assets/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+	<script src="assets/js/king-common.js"></script>
+	<script src="js/master.js"></script>
+	<script src="js/visitasTecnicas.js?v=201807121643"></script>
+</body>
+</html>
