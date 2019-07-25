@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body, h4{
+	font-family: 'Open Sans', sans-serif;
+}
+
+.content-wrapper{
+	margin-left: 200px;
+	background-color: #ffffff;
+}
+
+.top-bar.navbar-fixed-top{
+	background-color: #C30E1A;
+}
+
+.container .logo img{
+	content: url("../assets/img/hornipan_logo_min.png");
+}
+
+.logged-user img{
+	border: 0px !important;
+}
+
+.form-control.error{
+	border-color: #d38e99;
+	box-shadow: none;
+}
+
+label.error{
+	background: #f2dede;
+	border-color: #ebccd1;
+	color: #b94a48;
+	background-size: 20px 20px;
+	display: block;
+	border: 1px solid #ebccd1;
+	padding: 5px 10px;
+	border-radius: 2px;
+	margin-top: 2px;
+	position: relative;
+}
+
+.label-parcial{
+	background-color: #03CCDD;
+}
+
+.dataTables_empty{
+	text-align: center;
+}
+
+#left-sidebar{
+	width: 200px;
+}
+
+table .table-bordered{
+	font-size: 12px !important;
+}
+
+.inbox-nav-toggle{
+	font-size: 2.0em;
+	color: #555;
+}
+
+.widget-footer .btn{
+	float: right !important;
+}
